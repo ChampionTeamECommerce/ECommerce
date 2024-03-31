@@ -21,7 +21,7 @@ namespace DataAccess.EntityConfigurations
 
             builder.HasIndex(indexExpression: b => b.Name, name: "UK_Categories_Name").IsUnique();
 
-           // builder.HasOne(b => b.ParentCategory).WithMany(b => b.SubCategory).HasForeignKey("ParentId");
+            builder.HasMany(b => b.Clothes).WithOne(b => b.Category).HasForeignKey("CategoryId");
             builder.HasQueryFilter(b => !b.DeletedDate.HasValue);
         }
 

@@ -19,17 +19,16 @@ namespace Entities.Concretes
        
         public Guid CategoryId { get; set; }
         public Guid BrandId { get; set; }
+        public Guid GenderId { get; set; }
 
+        public virtual Gender Gender { get; set; }
         public virtual Category Category { get; set;}
         public virtual Brand Brand { get; set;}
 
 
 
         //ürün kodu yapılacakmı tekrar bak  
-
-      //RenkID INT,
-      //CinsiyetID INT,
     
-    //ResimURL VARCHAR(255),
+        //ResimURL VARCHAR(255) image ıd
     }
 }
