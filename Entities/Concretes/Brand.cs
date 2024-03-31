@@ -7,14 +7,10 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class Category:Entity<Guid>
+    public class Brand : Entity<Guid>
     {
         public string Name { get; set; }
 
-
-        public ICollection<Category> Categories { get; set;}
-
-       
 
     }
 }
