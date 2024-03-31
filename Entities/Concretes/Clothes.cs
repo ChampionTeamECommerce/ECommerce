@@ -12,7 +12,6 @@ namespace Entities.Concretes
     public class Clothes:Entity<Guid>
     {
         public string Name  { get; set; }
-        public string Size { get; set; }
         public string Description { get; set; }
         public int StockAmount { get; set; }
         public double ProductPrice { get; set; }
@@ -20,15 +19,19 @@ namespace Entities.Concretes
         public Guid CategoryId { get; set; }
         public Guid BrandId { get; set; }
         public Guid GenderId { get; set; }
+        public Guid SizeId { get; set; }
+
 
         public virtual Gender Gender { get; set; }
         public virtual Category Category { get; set;}
         public virtual Brand Brand { get; set;}
+        public virtual Size Size { get; set; }
+
 
 
 
         //ürün kodu yapılacakmı tekrar bak  
-    
+
         //ResimURL VARCHAR(255) image ıd
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class Brand : Entity<Guid>
+    public class Size :Entity<Guid>
     {
         public string Name { get; set; }
 
