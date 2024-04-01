@@ -18,6 +18,7 @@ namespace Business
             //  services.AddScoped<IUserLanguageService, UserLanguageManager>();
             //  services.AddScoped<IUserLanguageService, UserLanguageManager>();
               services.AddScoped<ICategoryService, CategoryManager>();
+              services.AddScoped<IColorService, ColorManager>();
 
 
 
