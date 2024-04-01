@@ -17,5 +17,7 @@ namespace Business.Abstracts
 
         Task<DeletedColorResponse> Delete(DeleteColorRequest deleteColorRequest);
         Task<UpdatedColorResponse> Update(UpdateColorRequest updateColorRequest);
+
+        //Task<GetListColorResponse> GetByName(string Name);
     }
 }

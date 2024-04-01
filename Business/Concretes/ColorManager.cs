@@ -4,6 +4,9 @@ using Business.DTOs.Category.Request;
 using Business.DTOs.Category.Response;
 using Business.DTOs.Color.Request;
 using Business.DTOs.Color.Response;
+using Business.Messages;
+using Business.Rules;
+using Core.CrossCuttingConcerns.Exceptions.Types;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -20,16 +23,23 @@ namespace Business.Concretes
     {
         IColorDal _colorDal;
         IMapper _mapper;
+        ColorBusinessRules _colorBusinessRules;
 
-        public ColorManager(IColorDal colorDal, IMapper mapper)
+        public ColorManager(IColorDal colorDal, IMapper mapper, ColorBusinessRules colorBusinessRules)
         {
             _colorDal = colorDal;
             _mapper = mapper;
+            _colorBusinessRules = colorBusinessRules;
         }
 
         public async Task<CreatedColorResponse> Add(CreateColorRequest createColorRequest)
         {
+
+            await _colorBusinessRules.ColorCannotBeDuplicated(createColorRequest.Name);
+           
+
             Color color = _mapper.Map<Color>(createColorRequest);
+          
             Color createdColor = await _colorDal.AddAsync(color);
             CreatedColorResponse createdColorResponse = _mapper.Map<CreatedColorResponse>(createdColor);
             return createdColorResponse;
@@ -58,5 +68,13 @@ namespace Business.Concretes
             UpdatedColorResponse updatedColorResponse = _mapper.Map<UpdatedColorResponse>(updateColor);
             return updatedColorResponse;
         }
+
+        //public async Task<GetListColorResponse> GetByName(string name)
+        //{
+        //    var result = await _colorDal.GetAsync(u => u.Name == name);
+        //    Color color = _mapper.Map<Color>(result);
+        //    return color;
+        //}
+
     }
 }
