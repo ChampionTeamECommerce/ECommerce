@@ -21,11 +21,12 @@ namespace DataAccess
 
             // services.AddScoped<IForeignLanguageDal, EfForeignLanguageDal>();
             services.AddScoped<ICategoryDal, EfCategoryDal>();
+            services.AddScoped<IColorDal, EfColorDal>();
 
 
 
 
-            
+
             return services;
         }
     }

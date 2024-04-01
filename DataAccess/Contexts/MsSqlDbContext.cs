@@ -15,6 +15,7 @@ namespace DataAccess.Contexts
         protected IConfiguration Configuration { get; set; }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Color> Colors { get; set; }
 
 
 
