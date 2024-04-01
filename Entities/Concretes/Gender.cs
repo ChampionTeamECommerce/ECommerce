@@ -11,6 +11,6 @@ namespace Entities.Concretes
     {
         public string Name { get; set; }
 
-        public ICollection<Clothes> Clothes { get; set; } // iki cinsinde kullandığı kıyafetler unisex olarak tutulacak
+        public ICollection<Product> Products  { get; set; } // iki cinsinde kullandığı kıyafetler unisex olarak tutulacak
     }
 }
