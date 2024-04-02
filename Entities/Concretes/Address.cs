@@ -19,6 +19,7 @@ namespace Entities.Concretes
         public virtual Country? Country { get; set; }
         public virtual District? District { get; set; }
         public virtual Neighborhood? Neighborhood { get; set; }
+        public virtual UserAddresses UserAddresses { get; set; }
 
 
     }

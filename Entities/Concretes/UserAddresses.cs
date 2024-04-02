@@ -7,10 +7,15 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class Country : Entity<Guid>
+    public class UserAddresses : Entity<Guid>
     {
         public string Name { get; set; }
-        public virtual Address Address { get; set; }
+
+        public Guid AddressId { get; set; }
+        
+        public virtual User User { get; set; }
+        public ICollection <Address> Addresses { get; set; }
+
 
     }
 }

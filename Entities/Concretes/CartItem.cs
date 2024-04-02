@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class Country : Entity<Guid>
+    public class CartItem:Entity<Guid>
     {
-        public string Name { get; set; }
-        public virtual Address Address { get; set; }
+
+        public Guid ProductId { get; set; }
+
+        public ICollection<Product> Products { get; set; }
 
     }
 }

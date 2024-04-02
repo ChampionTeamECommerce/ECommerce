@@ -11,5 +11,7 @@ namespace Entities.Concretes
     {
         public string Name { get; set; }
         public Guid DistrictId { get; set; }
+
+        public virtual Address Address { get; set; }
     }
 }
