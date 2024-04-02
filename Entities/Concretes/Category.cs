@@ -1,5 +1,6 @@
 ﻿using Core.Entity;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace Entities.Concretes
 
 
         public ICollection<Product> Products { get; set;}
+        public ICollection <SubCategory> SubCategories { get; set; }
 
        
 

@@ -21,10 +21,11 @@ public class Product:Entity<Guid>
     public Guid ColorId { get; set; }
 
     public virtual Gender Gender { get; set; }
-    public virtual Category Category { get; set;}
+    public virtual Category Category { get; set;} // many olabilir bi düşüncez :D
    // public virtual Brand Brand { get; set;}
     public virtual Size Size { get; set; }
     public virtual Color Color { get; set; }
+    public ICollection<CartItem> CartItems { get; set; }
 
 
 
