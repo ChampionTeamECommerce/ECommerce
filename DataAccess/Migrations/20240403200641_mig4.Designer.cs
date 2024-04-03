@@ -4,6 +4,7 @@ using DataAccess.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(MsSqlDbContext))]
-    partial class MsSqlDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240403200641_mig4")]
+    partial class mig4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -209,84 +212,6 @@ namespace DataAccess.Migrations
 
                     b.ToTable("Colors", (string)null);
                 });
-
-
-            modelBuilder.Entity("Entities.Concretes.ContactSubject", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("Id");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Name");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ContactSubject", (string)null);
-                });
-
-            modelBuilder.Entity("Entities.Concretes.ContactUs", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ContactSubjectId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MembershipCard")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ContactSubjectId");
-
-                    b.ToTable("ContactUs");
-                });
-
-
 
             modelBuilder.Entity("Entities.Concretes.Country", b =>
                 {
@@ -490,8 +415,7 @@ namespace DataAccess.Migrations
                         .HasColumnName("Description");
 
                     b.Property<Guid>("GenderId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("GenderId");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -744,20 +668,6 @@ namespace DataAccess.Migrations
                     b.Navigation("Country");
                 });
 
-
-            modelBuilder.Entity("Entities.Concretes.ContactUs", b =>
-                {
-                    b.HasOne("Entities.Concretes.ContactSubject", "ContactSubject")
-                        .WithMany("ContactUs")
-                        .HasForeignKey("ContactSubjectId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("ContactSubject");
-                });
-
-
-
             modelBuilder.Entity("Entities.Concretes.District", b =>
                 {
                     b.HasOne("Entities.Concretes.City", "City")
@@ -878,13 +788,6 @@ namespace DataAccess.Migrations
                 {
                     b.Navigation("Products");
                 });
-
-
-            modelBuilder.Entity("Entities.Concretes.ContactSubject", b =>
-                {
-                    b.Navigation("ContactUs");
-                });
-
 
             modelBuilder.Entity("Entities.Concretes.Country", b =>
                 {

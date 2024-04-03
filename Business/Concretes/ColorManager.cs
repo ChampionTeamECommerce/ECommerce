@@ -36,10 +36,9 @@ namespace Business.Concretes
         {
 
             await _colorBusinessRules.ColorCannotBeDuplicated(createColorRequest.Name);
-           
+
 
             Color color = _mapper.Map<Color>(createColorRequest);
-          
             Color createdColor = await _colorDal.AddAsync(color);
             CreatedColorResponse createdColorResponse = _mapper.Map<CreatedColorResponse>(createdColor);
             return createdColorResponse;
