@@ -23,7 +23,10 @@ namespace DataAccess
             services.AddScoped<ICategoryDal, EfCategoryDal>();
             services.AddScoped<IColorDal, EfColorDal>();
             services.AddScoped<IAddressDal, EfAddressDal>(); 
+
             services.AddScoped<IContactSubjectDal, EfContactSubjectDal>();
+
+
 
 
 

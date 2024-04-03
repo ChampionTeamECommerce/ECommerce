@@ -207,6 +207,7 @@ namespace DataAccess.Migrations
                     b.ToTable("Colors", (string)null);
                 });
 
+
             modelBuilder.Entity("Entities.Concretes.ContactSubject", b =>
                 {
                     b.Property<Guid>("Id")
@@ -281,6 +282,8 @@ namespace DataAccess.Migrations
 
                     b.ToTable("ContactUs");
                 });
+
+
 
             modelBuilder.Entity("Entities.Concretes.Country", b =>
                 {
@@ -726,6 +729,7 @@ namespace DataAccess.Migrations
                     b.Navigation("Country");
                 });
 
+
             modelBuilder.Entity("Entities.Concretes.ContactUs", b =>
                 {
                     b.HasOne("Entities.Concretes.ContactSubject", "ContactSubject")
@@ -736,6 +740,8 @@ namespace DataAccess.Migrations
 
                     b.Navigation("ContactSubject");
                 });
+
+
 
             modelBuilder.Entity("Entities.Concretes.District", b =>
                 {
@@ -858,10 +864,12 @@ namespace DataAccess.Migrations
                     b.Navigation("Products");
                 });
 
+
             modelBuilder.Entity("Entities.Concretes.ContactSubject", b =>
                 {
                     b.Navigation("ContactUs");
                 });
+
 
             modelBuilder.Entity("Entities.Concretes.Country", b =>
                 {
