@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfigurations
 {
-    public class ColorConfiguration : IEntityTypeConfiguration<Color>
+    public class CityConfiguration : IEntityTypeConfiguration<City>
     {
-        public void Configure(EntityTypeBuilder<Color> builder)
+        public void Configure(EntityTypeBuilder<City> builder)
         {
-            builder.ToTable("Colors").HasKey(b => b.Id);
+            builder.ToTable("Cities").HasKey(b => b.Id);
             builder.Property(b => b.Id).HasColumnName("Id").IsRequired();
             builder.Property(b => b.Name).HasColumnName("Name").IsRequired();
+            builder.Property(b => b.CountryId).HasColumnName("CountryId");
 
 
-            //builder.HasIndex(indexExpression: b => b.Name, name: "UK_Categories_Name").IsUnique();
 
-            builder.HasMany(b => b.Products).WithOne(b => b.Color).HasForeignKey("ProductId");
+            builder.HasOne(b => b.Address).WithOne(b => b.City).HasForeignKey("Address"); //?? doğrulanacak
+
             builder.HasQueryFilter(b => !b.DeletedDate.HasValue);
-
         }
     }
 }

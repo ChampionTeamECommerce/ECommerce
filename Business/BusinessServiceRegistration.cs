@@ -18,9 +18,13 @@ namespace Business
             //  services.AddScoped<IUserLanguageService, UserLanguageManager>();
             //  services.AddScoped<IUserLanguageService, UserLanguageManager>();
             //  services.AddScoped<IUserLanguageService, UserLanguageManager>();
-              services.AddScoped<ICategoryService, CategoryManager>();
-              services.AddScoped<IColorService, ColorManager>();
-              services.AddScoped<IAddressService, AddressManager>();
+            services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<IColorService, ColorManager>();
+            services.AddScoped<IAddressService, AddressManager>();
+            services.AddScoped<ICityService, CityManager>();
+            services.AddScoped<IProductService, ProductManager>();
+
+
 
               services.AddScoped<IContactSubjectService, ContactSubjectManager>();
 

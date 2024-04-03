@@ -14,17 +14,18 @@ public class Product:Entity<Guid>
     public int StockAmount { get; set; }
     public double ProductPrice { get; set; }
    
-    public Guid CategoryId { get; set; }
-    //public Guid BrandId { get; set; }
-    public Guid GenderId { get; set; }
-    public Guid SizeId { get; set; }
-    public Guid ColorId { get; set; }
+    public Guid? CategoryId { get; set; }
 
-    public virtual Gender Gender { get; set; }
-    public virtual Category Category { get; set;} // many olabilir bi düşüncez :D
+    //public Guid BrandId { get; set; }
+    public Guid? GenderId { get; set; }
+    public Guid? SizeId { get; set; }
+    public Guid? ColorId { get; set; }
+
+    public  Gender? Gender { get; set; }
+    public  Category? Category { get; set;} // many olabilir bi düşüncez :D
    // public virtual Brand Brand { get; set;}
-    public virtual Size Size { get; set; }
-    public virtual Color Color { get; set; }
+    public Size? Size { get; set; }
+    public Color? Color { get; set; }
     public ICollection<CartItem> CartItems { get; set; }
 
 
