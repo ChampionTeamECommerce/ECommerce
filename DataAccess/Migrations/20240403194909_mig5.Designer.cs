@@ -4,6 +4,7 @@ using DataAccess.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(MsSqlDbContext))]
-    partial class MsSqlDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240403194909_mig4")]
+    partial class mig4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,7 +210,6 @@ namespace DataAccess.Migrations
                     b.ToTable("Colors", (string)null);
                 });
 
-
             modelBuilder.Entity("Entities.Concretes.ContactSubject", b =>
                 {
                     b.Property<Guid>("Id")
@@ -282,8 +284,6 @@ namespace DataAccess.Migrations
 
                     b.ToTable("ContactUs");
                 });
-
-
 
             modelBuilder.Entity("Entities.Concretes.Country", b =>
                 {
@@ -729,7 +729,6 @@ namespace DataAccess.Migrations
                     b.Navigation("Country");
                 });
 
-
             modelBuilder.Entity("Entities.Concretes.ContactUs", b =>
                 {
                     b.HasOne("Entities.Concretes.ContactSubject", "ContactSubject")
@@ -740,8 +739,6 @@ namespace DataAccess.Migrations
 
                     b.Navigation("ContactSubject");
                 });
-
-
 
             modelBuilder.Entity("Entities.Concretes.District", b =>
                 {
@@ -864,12 +861,10 @@ namespace DataAccess.Migrations
                     b.Navigation("Products");
                 });
 
-
             modelBuilder.Entity("Entities.Concretes.ContactSubject", b =>
                 {
                     b.Navigation("ContactUs");
                 });
-
 
             modelBuilder.Entity("Entities.Concretes.Country", b =>
                 {

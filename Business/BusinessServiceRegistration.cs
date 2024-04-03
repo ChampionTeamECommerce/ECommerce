@@ -22,6 +22,10 @@ namespace Business
               services.AddScoped<IColorService, ColorManager>();
               services.AddScoped<IAddressService, AddressManager>();
 
+              services.AddScoped<IContactSubjectService, ContactSubjectManager>();
+
+
+
 
 
 
