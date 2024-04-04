@@ -25,6 +25,7 @@ public class Product:Entity<Guid>
    // public virtual Brand Brand { get; set;}
     public virtual Size Size { get; set; }
     public virtual Color Color { get; set; }
+    public ICollection<OrderDetail> OrderDetails { get; set; }  
     public ICollection<CartItem> CartItems { get; set; }
 
 

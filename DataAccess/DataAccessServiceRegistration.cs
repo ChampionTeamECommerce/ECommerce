@@ -22,7 +22,11 @@ namespace DataAccess
             // services.AddScoped<IForeignLanguageDal, EfForeignLanguageDal>();
             services.AddScoped<ICategoryDal, EfCategoryDal>();
             services.AddScoped<IColorDal, EfColorDal>();
-            services.AddScoped<IAddressDal, EfAddressDal>(); 
+            services.AddScoped<IAddressDal, EfAddressDal>();
+            services.AddScoped<ICountryDal, EfCountryDal>();
+            services.AddScoped<IDistrictDal, EfDistrictDal>();
+            services.AddScoped<IOrderDal, EfOrderDal>();
+            services.AddScoped<IOrderDetailDal, EfOrderDetailDal>();
 
 
 
