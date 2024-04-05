@@ -11,6 +11,6 @@ namespace Entities.Concretes
     {
         public string Name { get; set; }
         public virtual Address Address { get; set; }
-
+        public ICollection<City> Cities { get; set;}    
     }
 }

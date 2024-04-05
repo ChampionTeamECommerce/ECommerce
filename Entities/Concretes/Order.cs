@@ -8,6 +8,6 @@ public class Order : Entity<Guid>
     public string TrackingNumber { get; set; }
 
 
-    public User user { get; set; }
+    public User User { get; set; }
     public ICollection<OrderDetail> OrderDetails { get; set; }
 }

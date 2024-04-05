@@ -21,12 +21,17 @@ namespace Business
             services.AddScoped<ICategoryService, CategoryManager>();
             services.AddScoped<IColorService, ColorManager>();
             services.AddScoped<IAddressService, AddressManager>();
+            services.AddScoped<IOrderService, OrderManager>();
+            services.AddScoped<IOrderDetailService, OrderDetailManager>();
+            services.AddScoped<ICountryService, CountryManager>();
+            services.AddScoped<IDistrictService, DistrictManager>();
+            services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<IColorService, ColorManager>();
+            services.AddScoped<IAddressService, AddressManager>();
             services.AddScoped<ICityService, CityManager>();
             services.AddScoped<IProductService, ProductManager>();
-
-
-
-              services.AddScoped<IContactSubjectService, ContactSubjectManager>();
+            services.AddScoped<ICartItemService, CartItemManager>();
+            services.AddScoped<IContactSubjectService, ContactSubjectManager>();
 
 
 
