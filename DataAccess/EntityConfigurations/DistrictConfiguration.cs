@@ -18,15 +18,19 @@ namespace DataAccess.EntityConfigurations
             builder.Property(b => b.Id).HasColumnName("Id").IsRequired();
             builder.Property(b => b.Name).HasColumnName("Name").IsRequired();
 
+            builder.HasIndex(b => b.Name).IsUnique().HasName("UK_Districts_Name");
+
             builder.HasOne(b => b.Address);
             builder.HasOne(b => b.City);
 
+         
+            builder.HasMany(b => b.Neighborhoods);
 
-            builder.HasIndex(b => b.Name).IsUnique().HasName("UK_Districts_Name");
+
 
             builder.HasQueryFilter(b => !b.DeletedDate.HasValue);
 
         }
     }
-    
+
 }

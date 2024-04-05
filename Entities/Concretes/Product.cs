@@ -24,8 +24,9 @@ public class Product:Entity<Guid>
     public  Gender? Gender { get; set; }
     public  Category? Category { get; set;} // many olabilir bi düşüncez :D
    // public virtual Brand Brand { get; set;}
-    public Size? Size { get; set; }
-    public Color? Color { get; set; }
+    public virtual Size Size { get; set; }
+    public virtual Color Color { get; set; }
+    public ICollection<OrderDetail> OrderDetails { get; set; }  
     public ICollection<CartItem> CartItems { get; set; }
 
 

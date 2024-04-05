@@ -10,7 +10,11 @@ namespace Business.DTOs.Order.Request
     public class CreateOrderRequest
     {
         public string TrackingNumber { get; set; }
+
    
+
+        public Guid UserId { get; set; }
+
     }
 
 }

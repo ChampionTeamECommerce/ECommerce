@@ -19,13 +19,16 @@ namespace Business.Concretes
     public class DistrictManager : IDistrictService
     {
         IDistrictDal _districtDal;
+        IMapper _mapper;
 
-        public DistrictManager(IDistrictDal districtDal)
+   
+        public DistrictManager(IDistrictDal districtDal, IMapper mapper)
         {
             _districtDal = districtDal;
+            _mapper = mapper;
         }
 
-        IMapper _mapper;
+
         public async Task<CreatedDistrictResponse> Add(CreateDistrictRequest createDistrictRequest)
         {
 

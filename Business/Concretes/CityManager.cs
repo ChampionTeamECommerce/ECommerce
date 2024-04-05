@@ -15,6 +15,7 @@ using Entities.Concretes;
 using Business.DTOs.City.Response;
 using Business.Rules;
 using Business.DTOs.Color.Request;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace Business.Concretes
@@ -52,7 +53,10 @@ namespace Business.Concretes
 
         public async Task<IPaginate<GetListCityResponse>> GetListAsync(PageRequest pageRequest)
         {
-            var data = await _cityDal.GetListAsync(index: pageRequest.PageIndex, size: pageRequest.PageSize);
+            var data = await _cityDal.GetListAsync(
+                include: p => p
+                .Include(p => p.Country),
+                index: pageRequest.PageIndex, size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListCityResponse>>(data);
             return result;
         }

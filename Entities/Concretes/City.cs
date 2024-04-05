@@ -10,11 +10,14 @@ namespace Entities.Concretes
     public class City : Entity<Guid>
     {
         public string Name { get; set; }
+
         public Guid? CountryId { get; set; }
-          
+
 
         public virtual Country? Country { get; set; }
-        public virtual Address? Address { get; set; }
+        public virtual Address Address { get; set; }
+
+        public ICollection<District> Districts { get; set; }
       
 
     }
