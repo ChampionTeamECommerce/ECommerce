@@ -29,9 +29,9 @@ namespace DataAccess
             services.AddScoped<IOrderDetailDal, EfOrderDetailDal>();
             services.AddScoped<ICityDal, EfCityDal>();
             services.AddScoped<IProductDal, EfProductDal>();
-
-
             services.AddScoped<IContactSubjectDal, EfContactSubjectDal>();
+            services.AddScoped<ICartItemDal, EfCartItemDal>();
+
 
 
 

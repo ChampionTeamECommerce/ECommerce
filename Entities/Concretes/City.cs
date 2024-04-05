@@ -11,8 +11,8 @@ namespace Entities.Concretes
     {
         public string Name { get; set; }
 
-        public Guid CountryId { get; set; }
-          
+        public Guid? CountryId { get; set; }
+
 
         public virtual Country? Country { get; set; }
         public virtual Address Address { get; set; }

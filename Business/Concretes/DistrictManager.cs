@@ -21,11 +21,13 @@ namespace Business.Concretes
         IDistrictDal _districtDal;
         IMapper _mapper;
 
+   
         public DistrictManager(IDistrictDal districtDal, IMapper mapper)
         {
             _districtDal = districtDal;
             _mapper = mapper;
         }
+
 
         public async Task<CreatedDistrictResponse> Add(CreateDistrictRequest createDistrictRequest)
         {

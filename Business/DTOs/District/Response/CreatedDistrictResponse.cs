@@ -11,6 +11,7 @@ namespace Business.DTOs.District.Response
     {
         public string Name { get; set; }
         public Guid CityId { get; set; }
+
         
     }
 
