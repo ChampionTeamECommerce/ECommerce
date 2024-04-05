@@ -17,6 +17,11 @@ namespace DataAccess.Contexts
         public DbSet<Category> Categories { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<District> Districts { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
         public DbSet<City> Cities { get; set; }
         public DbSet<Product> Products { get; set; }
 

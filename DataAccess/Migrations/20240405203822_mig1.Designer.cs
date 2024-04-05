@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(MsSqlDbContext))]
-    [Migration("20240403200641_mig4")]
-    partial class mig4
+    [Migration("20240405203822_mig1")]
+    partial class mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -213,11 +213,12 @@ namespace DataAccess.Migrations
                     b.ToTable("Colors", (string)null);
                 });
 
-            modelBuilder.Entity("Entities.Concretes.Country", b =>
+            modelBuilder.Entity("Entities.Concretes.ContactSubject", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Id");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -226,6 +227,54 @@ namespace DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactSubject", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Concretes.ContactUs", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ContactSubjectId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MembershipCard")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -234,16 +283,48 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Country");
+                    b.HasIndex("ContactSubjectId");
+
+                    b.ToTable("ContactUs");
+                });
+
+            modelBuilder.Entity("Entities.Concretes.Country", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Id");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Countries", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concretes.District", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Id");
 
                     b.Property<Guid>("CityId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CountryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
@@ -254,7 +335,8 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("Name");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -263,7 +345,13 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("CityId");
 
-                    b.ToTable("District");
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasDatabaseName("UK_Districts_Name");
+
+                    b.ToTable("Districts", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concretes.Gender", b =>
@@ -319,6 +407,8 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DistrictId");
+
                     b.ToTable("Neighborhood");
                 });
 
@@ -326,7 +416,8 @@ namespace DataAccess.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Id");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -336,26 +427,29 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("TrackingNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("TrackingNumber");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("UserId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concretes.OrderDetail", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Id");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -364,19 +458,24 @@ namespace DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("OrderId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("OrderId");
 
                     b.Property<Guid>("ProductId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("ProductId");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Quantity");
 
                     b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("TotalPrice");
 
                     b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("UnitPrice");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -385,7 +484,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderDetail");
+                    b.ToTable("OrderDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concretes.Product", b =>
@@ -395,11 +494,12 @@ namespace DataAccess.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("Id");
 
-                    b.Property<Guid>("CategoryId")
+                    b.Property<Guid?>("CategoryId")
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("CategoryId");
 
-                    b.Property<Guid>("ColorId")
+                    b.Property<Guid?>("ColorId")
+                        .IsRequired()
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("ColorId");
 
@@ -414,16 +514,14 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Description");
 
-                    b.Property<Guid>("GenderId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<Guid?>("GenderId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("GenderId");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Name");
-
-                    b.Property<Guid?>("OrderDetailId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
@@ -432,7 +530,8 @@ namespace DataAccess.Migrations
                         .HasColumnType("float")
                         .HasColumnName("ProductPrice");
 
-                    b.Property<Guid>("SizeId")
+                    b.Property<Guid?>("SizeId")
+                        .IsRequired()
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("SizeId");
 
@@ -450,8 +549,6 @@ namespace DataAccess.Migrations
                     b.HasIndex("ColorId");
 
                     b.HasIndex("GenderId");
-
-                    b.HasIndex("OrderDetailId");
 
                     b.HasIndex("SizeId");
 
@@ -599,6 +696,21 @@ namespace DataAccess.Migrations
                     b.ToTable("UserAddresses");
                 });
 
+            modelBuilder.Entity("OrderDetailProduct", b =>
+                {
+                    b.Property<Guid>("OrderDetailsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("OrderDetailsId", "ProductsId");
+
+                    b.HasIndex("ProductsId");
+
+                    b.ToTable("OrderDetailProduct");
+                });
+
             modelBuilder.Entity("CartItemProduct", b =>
                 {
                     b.HasOne("Entities.Concretes.CartItem", null)
@@ -660,7 +772,7 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Entities.Concretes.City", b =>
                 {
                     b.HasOne("Entities.Concretes.Country", "Country")
-                        .WithMany()
+                        .WithMany("Cities")
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -668,13 +780,29 @@ namespace DataAccess.Migrations
                     b.Navigation("Country");
                 });
 
+            modelBuilder.Entity("Entities.Concretes.ContactUs", b =>
+                {
+                    b.HasOne("Entities.Concretes.ContactSubject", "ContactSubject")
+                        .WithMany("ContactUs")
+                        .HasForeignKey("ContactSubjectId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("ContactSubject");
+                });
+
             modelBuilder.Entity("Entities.Concretes.District", b =>
                 {
                     b.HasOne("Entities.Concretes.City", "City")
-                        .WithMany()
+                        .WithMany("Districts")
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("Entities.Concretes.Country", null)
+                        .WithMany("Districts")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("City");
                 });
@@ -687,15 +815,24 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("Entities.Concretes.Neighborhood", b =>
+                {
+                    b.HasOne("Entities.Concretes.District", null)
+                        .WithMany("Neighborhoods")
+                        .HasForeignKey("DistrictId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Entities.Concretes.Order", b =>
                 {
-                    b.HasOne("Entities.Concretes.User", "user")
+                    b.HasOne("Entities.Concretes.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("user");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Entities.Concretes.OrderDetail", b =>
@@ -714,8 +851,7 @@ namespace DataAccess.Migrations
                     b.HasOne("Entities.Concretes.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Entities.Concretes.Color", "Color")
                         .WithMany("Products")
@@ -726,12 +862,6 @@ namespace DataAccess.Migrations
                     b.HasOne("Entities.Concretes.Gender", "Gender")
                         .WithMany("Products")
                         .HasForeignKey("GenderId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Entities.Concretes.OrderDetail", null)
-                        .WithMany("Products")
-                        .HasForeignKey("OrderDetailId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Entities.Concretes.Size", "Size")
@@ -771,6 +901,21 @@ namespace DataAccess.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("OrderDetailProduct", b =>
+                {
+                    b.HasOne("Entities.Concretes.OrderDetail", null)
+                        .WithMany()
+                        .HasForeignKey("OrderDetailsId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Concretes.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Entities.Concretes.Category", b =>
                 {
                     b.Navigation("Products");
@@ -782,6 +927,8 @@ namespace DataAccess.Migrations
                 {
                     b.Navigation("Address")
                         .IsRequired();
+
+                    b.Navigation("Districts");
                 });
 
             modelBuilder.Entity("Entities.Concretes.Color", b =>
@@ -789,16 +936,27 @@ namespace DataAccess.Migrations
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("Entities.Concretes.ContactSubject", b =>
+                {
+                    b.Navigation("ContactUs");
+                });
+
             modelBuilder.Entity("Entities.Concretes.Country", b =>
                 {
                     b.Navigation("Address")
                         .IsRequired();
+
+                    b.Navigation("Cities");
+
+                    b.Navigation("Districts");
                 });
 
             modelBuilder.Entity("Entities.Concretes.District", b =>
                 {
                     b.Navigation("Address")
                         .IsRequired();
+
+                    b.Navigation("Neighborhoods");
                 });
 
             modelBuilder.Entity("Entities.Concretes.Gender", b =>
@@ -815,11 +973,6 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Entities.Concretes.Order", b =>
                 {
                     b.Navigation("OrderDetails");
-                });
-
-            modelBuilder.Entity("Entities.Concretes.OrderDetail", b =>
-                {
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Entities.Concretes.Size", b =>
