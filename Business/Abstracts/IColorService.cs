@@ -12,11 +12,11 @@ namespace Business.Abstracts
 {
     public interface IColorService
     {
-        Task<IPaginate<GetListColorResponse>> GetListAsync(PageRequest pageRequest);
-        Task<CreatedColorResponse> Add(CreateColorRequest createColorRequest);
+        Task<IPaginate<GetListContactUsResponse>> GetListAsync(PageRequest pageRequest);
+        Task<CreatedContactUsResponse> Add(CreateContactUsRequest createColorRequest);
 
-        Task<DeletedColorResponse> Delete(DeleteColorRequest deleteColorRequest);
-        Task<UpdatedColorResponse> Update(UpdateColorRequest updateColorRequest);
+        Task<DeletedContactUsResponse> Delete(DeleteContactUsRequest deleteColorRequest);
+        Task<UpdatedContactUsResponse> Update(UpdateContactUsRequest updateColorRequest);
 
         //Task<GetListColorResponse> GetByName(string Name);
     }

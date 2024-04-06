@@ -1,6 +1,6 @@
-﻿namespace Business.DTOs.Color.Request
+﻿namespace Business.DTOs.ContactUs.Response
 {
-    public class UpdateContactUsRequest
+    public class CreatedContactUsResponse
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

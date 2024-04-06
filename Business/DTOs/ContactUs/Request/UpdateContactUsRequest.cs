@@ -1,4 +1,4 @@
-﻿namespace Business.DTOs.Color.Request
+﻿namespace Business.DTOs.ContactUs.Request
 {
     public class UpdateContactUsRequest
     {

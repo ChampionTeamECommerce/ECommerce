@@ -28,6 +28,7 @@ namespace Business
             
             services.AddScoped<ICityService, CityManager>();
             services.AddScoped<IProductService, ProductManager>();
+            services.AddScoped<IContactUsService, ContactUsManager>();
 
             services.AddScoped<ICartItemService, CartItemManager>();
             services.AddScoped<IContactSubjectService, ContactSubjectManager>();

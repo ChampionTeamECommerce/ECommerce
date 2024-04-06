@@ -32,7 +32,7 @@ namespace Business.Concretes
             _colorBusinessRules = colorBusinessRules;
         }
 
-        public async Task<CreatedColorResponse> Add(CreateColorRequest createColorRequest)
+        public async Task<CreatedContactUsResponse> Add(CreateContactUsRequest createColorRequest)
         {
 
             await _colorBusinessRules.ColorCannotBeDuplicated(createColorRequest.Name);
@@ -40,31 +40,31 @@ namespace Business.Concretes
 
             Color color = _mapper.Map<Color>(createColorRequest);
             Color createdColor = await _colorDal.AddAsync(color);
-            CreatedColorResponse createdColorResponse = _mapper.Map<CreatedColorResponse>(createdColor);
+            CreatedContactUsResponse createdColorResponse = _mapper.Map<CreatedContactUsResponse>(createdColor);
             return createdColorResponse;
         }
 
-        public async Task<DeletedColorResponse> Delete(DeleteColorRequest deleteColorRequest)
+        public async Task<DeletedContactUsResponse> Delete(DeleteContactUsRequest deleteColorRequest)
         {
             Color? color = await _colorDal.GetAsync(u => u.Id == deleteColorRequest.Id);
             await _colorDal.DeleteAsync(color);
-            DeletedColorResponse deletedColorResponse = _mapper.Map<DeletedColorResponse>(color);
+            DeletedContactUsResponse deletedColorResponse = _mapper.Map<DeletedContactUsResponse>(color);
             return deletedColorResponse;
         }
 
-        public async Task<IPaginate<GetListColorResponse>> GetListAsync(PageRequest pageRequest)
+        public async Task<IPaginate<GetListContactUsResponse>> GetListAsync(PageRequest pageRequest)
         {
             var data = await _colorDal.GetListAsync(index: pageRequest.PageIndex, size: pageRequest.PageSize);
-            var result = _mapper.Map<Paginate<GetListColorResponse>>(data);
+            var result = _mapper.Map<Paginate<GetListContactUsResponse>>(data);
             return result;
         }
 
-        public async Task<UpdatedColorResponse> Update(UpdateColorRequest updateColorRequest)
+        public async Task<UpdatedContactUsResponse> Update(UpdateContactUsRequest updateColorRequest)
         {
             Color? color = await _colorDal.GetAsync(u => u.Id == updateColorRequest.Id);
             _mapper.Map(updateColorRequest, color);
             Color updateColor = await _colorDal.UpdateAsync(color);
-            UpdatedColorResponse updatedColorResponse = _mapper.Map<UpdatedColorResponse>(updateColor);
+            UpdatedContactUsResponse updatedColorResponse = _mapper.Map<UpdatedContactUsResponse>(updateColor);
             return updatedColorResponse;
         }
 
