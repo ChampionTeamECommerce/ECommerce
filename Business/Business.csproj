@@ -17,4 +17,31 @@
     <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="DTOs\Gender\" />
+    <None Remove="DTOs\Gender\Request\" />
+    <None Remove="DTOs\Gender\Response\" />
+    <None Remove="DTOs\Neighborhood\" />
+    <None Remove="DTOs\Neighborhood\Response\" />
+    <None Remove="DTOs\UserAddresses\" />
+    <None Remove="DTOs\UserAddresses\Request\" />
+    <None Remove="DTOs\UserAddresses\Response\" />
+    <None Remove="DTOs\Size\" />
+    <None Remove="DTOs\Size\Request\" />
+    <None Remove="DTOs\Size\Response\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTOs\Gender\" />
+    <Folder Include="DTOs\Gender\Request\" />
+    <Folder Include="DTOs\Gender\Response\" />
+    <Folder Include="DTOs\Neighborhood\" />
+    <Folder Include="DTOs\Neighborhood\Request\" />
+    <Folder Include="DTOs\Neighborhood\Response\" />
+    <Folder Include="DTOs\UserAddresses\" />
+    <Folder Include="DTOs\UserAddresses\Request\" />
+    <Folder Include="DTOs\UserAddresses\Response\" />
+    <Folder Include="DTOs\Size\" />
+    <Folder Include="DTOs\Size\Request\" />
+    <Folder Include="DTOs\Size\Response\" />
+  </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 ﻿using Business.Abstracts;
 using Business.Concretes;
 using Core.Business.Rules;
+using Entities.Concretes;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Business
             //  services.AddScoped<IUserLanguageService, UserLanguageManager>();
             //  services.AddScoped<IUserLanguageService, UserLanguageManager>();
             //  services.AddScoped<IUserLanguageService, UserLanguageManager>();
+<<<<<<< HEAD
             services.AddScoped<ICategoryService, CategoryManager>();
             services.AddScoped<IColorService, ColorManager>();
             services.AddScoped<IAddressService, AddressManager>();
@@ -37,6 +39,15 @@ namespace Business
 
 
 
+=======
+              services.AddScoped<ICategoryService, CategoryManager>();
+              services.AddScoped<IColorService, ColorManager>();
+              services.AddScoped<IAddressService, AddressManager>();
+              services.AddScoped<IGenderService, GenderManager>();
+              services.AddScoped<INeighborhoodService, NeighborhoodManager>();
+              services.AddScoped<IUserAddressesService, UserAddressesManager>();
+              services.AddScoped<ISizeService, SizeManager>();
+>>>>>>> 2ffb0b4 (Added Gender, Neighborhood, Size, UserAddresses)
 
 
 

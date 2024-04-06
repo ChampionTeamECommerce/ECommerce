@@ -1,7 +1,6 @@
 ﻿using Business.Abstracts;
 using Business.DTOs.Color.Request;
 using Core.DataAccess.Paging;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
