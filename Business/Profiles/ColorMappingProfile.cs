@@ -15,18 +15,18 @@ namespace Business.Profiles
     {
         public ColorMappingProfile()
         {
-            CreateMap<Color, CreateContactUsRequest>().ReverseMap();
-            CreateMap<Color, CreatedContactUsResponse>().ReverseMap();
+            CreateMap<Color, CreateColorRequest>().ReverseMap();
+            CreateMap<Color, CreatedColorResponse>().ReverseMap();
 
 
-            CreateMap<Color, UpdateContactUsRequest>().ReverseMap();
-            CreateMap<Color, UpdatedContactUsResponse>().ReverseMap();
+            CreateMap<Color, UpdateColorRequest>().ReverseMap();
+            CreateMap<Color, UpdatedColorResponse>().ReverseMap();
 
-            CreateMap<Color, DeleteContactUsRequest>().ReverseMap();
-            CreateMap<Color, DeletedContactUsResponse>().ReverseMap();
+            CreateMap<Color, DeleteColorRequest>().ReverseMap();
+            CreateMap<Color, DeletedColorResponse>().ReverseMap();
 
-            CreateMap<Color, GetListContactUsResponse>().ReverseMap();
-            CreateMap<Paginate<Color>, Paginate<GetListContactUsResponse>>().ReverseMap();
+            CreateMap<Color, GetListColorResponse>().ReverseMap();
+            CreateMap<Paginate<Color>, Paginate<GetListColorResponse>>().ReverseMap();
         }
       
     }

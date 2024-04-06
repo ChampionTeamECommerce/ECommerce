@@ -17,14 +17,14 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public async Task<IActionResult> Add([FromBody] CreateContactUsRequest createColorRequest)
+        public async Task<IActionResult> Add([FromBody] CreateColorRequest createColorRequest)
         {
             await _colorService.Add(createColorRequest);
             return Ok();
         }
 
         [HttpDelete("delete")]
-        public async Task<IActionResult> Delete([FromBody] DeleteContactUsRequest deleteColorRequest)
+        public async Task<IActionResult> Delete([FromBody] DeleteColorRequest deleteColorRequest)
         {
             await _colorService.Delete(deleteColorRequest);
             return Ok();
@@ -37,7 +37,7 @@ namespace WebAPI.Controllers
             return Ok(result);
         }
         [HttpPut("update")]
-        public async Task<IActionResult> Update([FromBody] UpdateContactUsRequest updateColorRequest)
+        public async Task<IActionResult> Update([FromBody] UpdateColorRequest updateColorRequest)
         {
             await _colorService.Update(updateColorRequest);
             return Ok();

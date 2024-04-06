@@ -18,7 +18,6 @@ namespace DataAccess
             services.AddScoped<ICategoryDal, EfCategoryDal>();
             services.AddScoped<IColorDal, EfColorDal>();
             services.AddScoped<IAddressDal, EfAddressDal>();
-<<<<<<< HEAD
             services.AddScoped<ICountryDal, EfCountryDal>();
             services.AddScoped<IDistrictDal, EfDistrictDal>();
             services.AddScoped<IOrderDal, EfOrderDal>();
@@ -34,13 +33,10 @@ namespace DataAccess
 
 
 
-
-=======
             services.AddScoped<IGenderDal, EfGenderDal>();
             services.AddScoped<INeighborhoodDal, EfNeighborhoodDal>();
             services.AddScoped<IUserAddressesDal, EfUserAddressesDal>();
             services.AddScoped<ISizeDal, EfSizeDal>();
->>>>>>> 2ffb0b4 (Added Gender, Neighborhood, Size, UserAddresses)
 
 
             return services;

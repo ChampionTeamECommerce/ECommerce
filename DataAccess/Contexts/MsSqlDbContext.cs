@@ -17,30 +17,27 @@ namespace DataAccess.Contexts
         public DbSet<Category> Categories { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<Address> Addresses { get; set; }
-<<<<<<< HEAD
         public DbSet<Country> Countries { get; set; }
         public DbSet<District> Districts { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-
-
         public DbSet<City> Cities { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
-
-
-
-=======
+        public DbSet<ContactUs> ContactUs { get; set; }
+        public DbSet<ContactSubject> ContactSubjects { get; set; }
         public DbSet<Gender> Genders { get; set; }
         public DbSet<Neighborhood> Neighborhoods { get; set; }
         public DbSet<UserAddresses> UserAddresses { get; set; }
         public DbSet<Size> Sizes { get; set; }
->>>>>>> 2ffb0b4 (Added Gender, Neighborhood, Size, UserAddresses)
+
+
+
 
         public MsSqlDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

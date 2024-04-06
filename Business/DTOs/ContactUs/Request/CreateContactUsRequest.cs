@@ -9,5 +9,6 @@ namespace Business.DTOs.ContactUs.Request
     public class CreateContactUsRequest
     {
         public string Name { get; set; }
+        public Guid ContactSubjectId { get; set; }
     }
 }

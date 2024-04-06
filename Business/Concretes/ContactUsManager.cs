@@ -6,6 +6,7 @@ using Business.Rules;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using Entities.Concretes;
+using Microsoft.EntityFrameworkCore;
 
 namespace Business.Concretes
 {
@@ -42,7 +43,10 @@ namespace Business.Concretes
         }
         public async Task<IPaginate<GetListContactUsResponse>> GetListAsync(PageRequest pageRequest)
         {
-            var data = await _contactUsDal.GetListAsync(index: pageRequest.PageIndex, size: pageRequest.PageSize);
+            var data = await _contactUsDal.GetListAsync(
+                include: p => p
+                .Include(p => p.ContactSubject),
+                index: pageRequest.PageIndex, size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListContactUsResponse>>(data);
             return result;
         }

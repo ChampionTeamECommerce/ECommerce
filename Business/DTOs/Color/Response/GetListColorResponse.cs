@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.DTOs.Color.Response
 {
-    public class GetListContactUsResponse
+    public class GetListColorResponse
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

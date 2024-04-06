@@ -1,6 +1,6 @@
 ﻿namespace Business.DTOs.Color.Request
 {
-    public class DeleteContactUsRequest
+    public class DeleteColorRequest
     {
         public Guid Id { get; set; }
     }

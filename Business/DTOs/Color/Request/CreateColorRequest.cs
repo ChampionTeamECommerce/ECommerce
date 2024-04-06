@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.DTOs.Color.Request
 {
-    public class CreateContactUsRequest
+    public class CreateColorRequest
     {
         public string Name { get; set; }
     }

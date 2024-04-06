@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Business.DTOs.Color.Request;
-using Business.DTOs.Color.Response;
+using Business.DTOs.ContactUs.Request;
+using Business.DTOs.ContactUs.Response;
 using Core.DataAccess.Paging;
 using Entities.Concretes;
 using System;
@@ -25,7 +25,12 @@ namespace Business.Profiles
             CreateMap<ContactUs, DeleteContactUsRequest>().ReverseMap();
             CreateMap<ContactUs, DeletedContactUsResponse>().ReverseMap();
 
-            CreateMap<ContactUs, GetListContactUsResponse>().ReverseMap();
+            CreateMap<ContactUs, GetListContactUsResponse>()
+                .ForMember(destinationMember: a => a.Name,
+           memberOptions: opt => opt.MapFrom(a => a.ContactSubject.Name))
+                .ForMember(destinationMember: a => a.ContactSubjectId,
+           memberOptions: opt => opt.MapFrom(a => a.ContactSubject.Id))
+                .ReverseMap();
             CreateMap<Paginate<ContactUs>, Paginate<GetListContactUsResponse>>().ReverseMap();
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Business.DTOs.Color.Response
 {
-    public class UpdatedContactUsResponse
+    public class UpdatedColorResponse
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
