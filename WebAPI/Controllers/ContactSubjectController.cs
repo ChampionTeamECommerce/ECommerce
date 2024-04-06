@@ -1,6 +1,5 @@
 ﻿using Business.Abstracts;
 using Business.DTOs.ContactSubject.Request;
-using Business.DTOs.ContactSubject.Request;
 using Core.DataAccess.Paging;
 using Microsoft.AspNetCore.Mvc;
 
