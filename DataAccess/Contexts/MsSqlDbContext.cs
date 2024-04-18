@@ -1,4 +1,5 @@
-﻿using Entities.Concretes;
+﻿using Core.Entity.Concrete;
+using Entities.Concretes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -30,6 +31,9 @@ namespace DataAccess.Contexts
         public DbSet<Neighborhood> Neighborhoods { get; set; }
         public DbSet<UserAddresses> UserAddresses { get; set; }
         public DbSet<Size> Sizes { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
 
 
 

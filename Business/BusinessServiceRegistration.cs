@@ -1,4 +1,5 @@
 ﻿using Business.Abstracts;
+using Business.BusinessAspects.Autofac;
 using Business.Concretes;
 using Core.Business.Rules;
 using Entities.Concretes;
@@ -33,23 +34,27 @@ namespace Business
 
             services.AddScoped<ICartItemService, CartItemManager>();
             services.AddScoped<IContactSubjectService, ContactSubjectManager>();
+            services.AddScoped<IUserService, UserManager>();
+            services.AddScoped<IAuthService, AuthManager>();
 
 
+            services.AddScoped<IUserOperationClaimService, UserOperationClaimManager>();
 
-
-              services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<ICategoryService, CategoryManager>();
               services.AddScoped<IColorService, ColorManager>();
               services.AddScoped<IAddressService, AddressManager>();
               services.AddScoped<IGenderService, GenderManager>();
               services.AddScoped<INeighborhoodService, NeighborhoodManager>();
               services.AddScoped<IUserAddressesService, UserAddressesManager>();
               services.AddScoped<ISizeService, SizeManager>();
+            
 
 
 
 
-
-
+            services.AddHttpContextAccessor(); 
+            
+            services.AddScoped<SecuredOperation>();
 
 
             services.AddSubClassesOfType(Assembly.GetExecutingAssembly(), typeof(BaseBusinessRules));

@@ -28,6 +28,7 @@ namespace DataAccess
 
             services.AddScoped<IContactSubjectDal, EfContactSubjectDal>();
             services.AddScoped<ICartItemDal, EfCartItemDal>();
+            services.AddScoped<IUserDal,EfUserDal>();
 
 
 
@@ -37,6 +38,7 @@ namespace DataAccess
             services.AddScoped<INeighborhoodDal, EfNeighborhoodDal>();
             services.AddScoped<IUserAddressesDal, EfUserAddressesDal>();
             services.AddScoped<ISizeDal, EfSizeDal>();
+            services.AddScoped<IUserOperationClaimDal, EfUserOperationClaimDal>();
 
 
             return services;
