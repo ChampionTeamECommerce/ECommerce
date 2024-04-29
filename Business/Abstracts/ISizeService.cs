@@ -14,6 +14,7 @@ namespace Business.Abstracts
 
         Task<DeletedSizeResponse> Delete(DeleteSizeRequest deleteSizeRequest);
         Task<UpdatedSizeResponse> Update(UpdateSizeRequest updateSizeRequest);
+        Task<GetListSizeResponse> GetName(string name);
     }
 }
 

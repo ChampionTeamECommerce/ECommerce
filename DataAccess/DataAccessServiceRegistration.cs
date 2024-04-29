@@ -39,6 +39,7 @@ namespace DataAccess
             services.AddScoped<IUserAddressesDal, EfUserAddressesDal>();
             services.AddScoped<ISizeDal, EfSizeDal>();
             services.AddScoped<IUserOperationClaimDal, EfUserOperationClaimDal>();
+            services.AddScoped<IOperationClaimDal, EfOperationClaimDal>();
 
 
             return services;

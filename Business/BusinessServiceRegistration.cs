@@ -36,6 +36,7 @@ namespace Business
             services.AddScoped<IContactSubjectService, ContactSubjectManager>();
             services.AddScoped<IUserService, UserManager>();
             services.AddScoped<IAuthService, AuthManager>();
+            services.AddScoped<IOperationClaimService, OperationClaimManager>();
 
 
             services.AddScoped<IUserOperationClaimService, UserOperationClaimManager>();

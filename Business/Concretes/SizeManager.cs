@@ -51,7 +51,14 @@ namespace Business.Concretes
                 return result;
             }
 
-            public async Task<UpdatedSizeResponse> Update(UpdateSizeRequest updateSizeRequest)
+        public async Task<GetListSizeResponse> GetName(string name)
+        {
+            var data = await _sizeDal.GetAsync(s => s.Name.Contains(name));
+            var result = _mapper.Map<GetListSizeResponse>(data);
+            return result;
+        }
+
+        public async Task<UpdatedSizeResponse> Update(UpdateSizeRequest updateSizeRequest)
             {
             Size? size = await _sizeDal.GetAsync(u => u.Id == updateSizeRequest.Id);
                 _mapper.Map(updateSizeRequest,size);

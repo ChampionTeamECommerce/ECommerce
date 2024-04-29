@@ -16,6 +16,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Business.DTOs.Address.Response;
+using Business.BusinessAspects.Autofac;
+using Core.Entity.Concrete;
 
 namespace Business.Concretes
 {
@@ -32,6 +34,7 @@ namespace Business.Concretes
             _productDal = productDal;
         }
 
+       // [SecuredOperation("Product.Add")]
         public async Task<CreatedProductResponse> Add(CreateProductRequest createProductRequest)
         {
             await _productBusinessRules.ProductCannotBeDuplicated(createProductRequest.Name);
@@ -64,6 +67,33 @@ namespace Business.Concretes
 
         }
 
+        public async Task<GetListProductResponse> GetName(string name)
+        {
+            var data = await _productDal.GetAsync(
+                p => p.Name.Contains(name),
+                include: p => p
+                    .Include(p => p.Category)
+                    .Include(p => p.Gender)
+                    .Include(p => p.Color)
+                    .Include(p => p.Size)
+            );
+
+            var result = _mapper.Map<GetListProductResponse>(data);
+            return result;
+        }
+
+
+
+
+        //}
+        //public async Task<GetListProductResponse> GetName(string name)
+        //{
+        //    var data = await _productDal.GetAsync(p => EF.Functions.Like(p.Name, "%" + name + "%"));
+        //    var result = _mapper.Map<GetListProductResponse>(data);
+        //    return result;
+        //}
+
+
         public async Task<UpdatedProductResponse> Update(UpdateProductRequest updateProductRequest)
         {
             Product? product = await _productDal.GetAsync(u => u.Id == updateProductRequest.Id);
@@ -72,5 +102,7 @@ namespace Business.Concretes
             UpdatedProductResponse updatedProductResponse = _mapper.Map<UpdatedProductResponse>(updateproduct);
             return updatedProductResponse;
         }
+
+
     }
 }

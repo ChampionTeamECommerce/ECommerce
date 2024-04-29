@@ -51,8 +51,8 @@ namespace Business.Concretes
 
 
             //sendTestEmail(userForRegisterRequest);
-
             return resultToken;
+
         }
         public async Task<AccessToken> CreateAccessToken(UserAuth userAuth)
         {

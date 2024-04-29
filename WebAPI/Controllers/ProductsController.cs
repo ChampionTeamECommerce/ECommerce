@@ -1,5 +1,6 @@
 ﻿using Business.Abstracts;
 using Business.DTOs.Product.Request;
+using Business.DTOs.Product.Response;
 using Core.DataAccess.Paging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,14 @@ namespace WebAPI.Controllers
             var result = await _productService.GetListAsync(pageRequest);
             return Ok(result);
         }
+        [HttpGet("{name}")]
+        public async Task<IActionResult> GetName([FromRoute] string name) 
+        {
+            var result = await _productService.GetName(name);
+            return Ok(result);
+        }
+
+
         [HttpPut("update")]
         public async Task<IActionResult> Update([FromBody] UpdateProductRequest updateProductRequest)
         {

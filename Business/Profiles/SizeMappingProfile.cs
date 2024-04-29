@@ -25,6 +25,7 @@ namespace Business.Profiles
 
             CreateMap<Size, GetListSizeResponse>().ReverseMap();
             CreateMap<Paginate<Size>, Paginate<GetListSizeResponse>>().ReverseMap();
+
         }
 
     }

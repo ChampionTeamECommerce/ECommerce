@@ -39,6 +39,14 @@ namespace WebAPI.Controllers
             var result = await _sizeService.GetListAsync(pageRequest);
             return Ok(result);
         }
+
+        [HttpGet("{name}")]
+        public async Task<IActionResult> GetName([FromRoute] string name)
+        {
+            var result = await _sizeService.GetName(name);
+            return Ok(result);
+        }
+
         [HttpPut("update")]
         public async Task<IActionResult> Update([FromBody] UpdateSizeRequest updateSizeRequest)
         {

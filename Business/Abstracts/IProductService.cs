@@ -16,5 +16,6 @@ namespace Business.Abstracts
 
         Task<DeletedProductResponse> Delete(DeleteProductRequest deleteProductRequest);
         Task<UpdatedProductResponse> Update(UpdateProductRequest updateProductRequest);
+        Task<GetListProductResponse> GetName(string name);
     }
 }

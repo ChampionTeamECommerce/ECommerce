@@ -18,6 +18,8 @@ namespace Business.DTOs.Product.Request
         public Guid? GenderId { get; set; }
         public Guid? SizeId { get; set; }
         public Guid? ColorId { get; set; }
+
+
     }
 
 }
